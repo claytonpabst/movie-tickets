@@ -1,45 +1,31 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header.js'
+import MovieOverviews from './components/MovieOverviews.js'
 
-import axios from './movies'
+
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
-
+      authenticated: false
     }
   }
 
-  componentDidMount(){
-
+  login = () => {
+    this.setState({authenticated:true})
   }
 
-
   render() {
-    // axios.get().then(res => {
-    //   console.log(res)
-    // })
-    axios.get.then(res => {
-      console.log(res)
-    })
+    console.log(this)
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header login={this.login}/>
+        {this.state.authenticated && 
+          <MovieOverviews />
+        }
       </div>
     );
   }
