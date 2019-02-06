@@ -2,8 +2,28 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import axios from './movies'
+
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+
+    }
+  }
+
+  componentDidMount(){
+
+  }
+
+
   render() {
+    // axios.get().then(res => {
+    //   console.log(res)
+    // })
+    axios.get.then(res => {
+      console.log(res)
+    })
     return (
       <div className="App">
         <header className="App-header">
